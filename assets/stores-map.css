@@ -1,0 +1,161 @@
+.stores-map-container {
+  position: relative;
+}
+
+#stores-map-canvas {
+  height: 100vh;
+  max-height: 820px;
+  width: 100%;
+}
+
+#stores-map-menu {
+  position: absolute;
+  top: 30px;
+  left: 5%;
+  height: auto;
+  max-height: calc(100% - 60px);
+  width: 292px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#stores-map-menu {
+  color: #fff;
+  font-family: "Roboto", Sans-serif;
+}
+
+#stores-map-menu .stores-map-form {
+  background-color: #d0303d;
+  padding: 15px 10px 26px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#stores-map-menu .stores-map-form input[type="text"] {
+  font-family: "Ramillas Regular", Sans-serif;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  width: 100%;
+  border-bottom: 1px solid #fff;
+  padding: 5px;
+  font-size: 1.25rem;
+}
+#stores-map-menu .stores-map-form input[type="text"]::placeholder {
+  color: #fff;
+  opacity: 1;
+}
+
+#stores-map-menu .stores-map-form input[type="checkbox"] {
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1em;
+  height: 1em;
+  border: 2px solid #fff;
+  background: transparent;
+  border-radius: 0.15em;
+  position: relative;
+  transform: translatey(0.15em);
+}
+#stores-map-menu .stores-map-form input[type="checkbox"]::after {
+  display: none;
+}
+
+#stores-map-menu .stores-map-form input[type="checkbox"]::before {
+  background: #fff;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  margin: 2px;
+}
+
+#stores-map-menu .stores-map-form label {
+  font-weight: 500 !important;
+}
+
+#stores-map-list {
+  overflow-y: auto;
+}
+
+#stores-map-list .ristorante-city {
+  font-family: "Roboto", Sans-serif;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+#stores-map-list .ristorante-title {
+  font-size: 1.625rem;
+  font-family: "Ramillas Regular", Sans-serif;
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+
+#stores-map-list .ristorante-address,
+#stores-map-list .ristorante-phone {
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-size: 1em 1em;
+  padding-left: 1.5em;
+}
+
+#stores-map-list .ristorante {
+  background-color: #d0303d;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 1rem 10px;
+  border-top: 1px solid #fff;
+}
+#stores-map-list .ristorante[data-type*="to-go"] {
+  background-color: #004e37;
+}
+
+#stores-map-list .ristorante[data-type*="to-go"] .ristorante-title {
+  padding-right: 50px;
+}
+
+#stores-map-list .ristorante.hidden {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  #stores-map-menu {
+    width: 100%;
+    top: 0;
+    left: 0;
+    border: 10px solid transparent;
+    max-height: calc(100% - 60px);
+  }
+  #stores-map-list {
+    display: none;
+  }
+}
+
+.map-info-window-link {
+  background-color: #d0303d;
+  color: #fff;
+  padding: 0.5em 1em;
+  font-family: "Ramillas Regular", Sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: auto;
+  display: block;
+  font-weight: 700;
+  outline: none;
+}
+
+.map-info-window h3 {
+  font-family: "Ramillas Regular", Sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+.stores-map-container.no-menu #stores-map-menu {
+  display: none;
+}
