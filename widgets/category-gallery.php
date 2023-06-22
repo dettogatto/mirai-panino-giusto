@@ -15,7 +15,7 @@ class Category_Gallery extends \Elementor\Widget_Base
     parent::__construct($data, $args);
 
     // wp_register_script('category-gallery-js', plugins_url('/assets/js/category-gallery.js', __DIR__), ['jquery'], null, true);
-    // wp_register_style('category-gallery-css', plugins_url('/assets/css/category-gallery.css', __DIR__));
+    wp_register_style('mirai-category-gallery-css', plugins_url('/assets/category-gallery.css', __DIR__));
   }
 
   /**
@@ -96,7 +96,7 @@ class Category_Gallery extends \Elementor\Widget_Base
    */
   public function get_style_depends()
   {
-    return [];
+    return ["mirai-category-gallery-css"];
   }
 
   /**
@@ -251,6 +251,9 @@ class Category_Gallery extends \Elementor\Widget_Base
           <div class="mirai-category-card-image-container"
             style="background-image: url(<?php echo ($settings['background_image']['url']) ?>)">
             <img src="<?php echo ($img); ?>">
+            <?php if ($bollino) { ?>
+              <img src="<?php echo ($bollino); ?>" class="bollino">
+            <?php } ?>
           </div>
           <div class="mirai-category-card-text-container">
             <p class="card-title">
