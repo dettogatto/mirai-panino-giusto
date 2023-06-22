@@ -19,3 +19,7 @@
 .opening-times-table tr:not(:first-child) {
   border-top: 1px solid #d0303d;
 }
+
+.opening-times-table.no-delivery td {
+  text-align: right;
+}

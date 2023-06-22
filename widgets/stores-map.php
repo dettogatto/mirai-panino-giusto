@@ -259,7 +259,7 @@ class Stores_Map extends \Elementor\Widget_Base
     <script>
       window.ristorantiData = <?php echo json_encode($ristoranti); ?>;
       window.markerIcon = "<?php echo plugin_dir_url(__DIR__) . '/assets/icons/map-marker.png'; ?>";
-      window.markerIconToGo = "<?php echo plugin_dir_url(__DIR__) . '/assets/icons/map-marker-togo.png'; ?>";
+      window.markerIconToGo = "<?php echo plugin_dir_url(__DIR__) . '/assets/icons/map-marker-togo-red.png'; ?>";
     </script>
     <div class="stores-map-container <?php if ($settings['show_menu'] != 'yes') {
       echo "no-menu";
@@ -269,6 +269,8 @@ class Stores_Map extends \Elementor\Widget_Base
       <div id="stores-map-menu">
         <div class="stores-map-form">
           <input type="text" id="stores-map-search" placeholder="Città...">
+          <div id="stores-map-locate-me" <?php echo ('style="background-image: url(' . plugin_dir_url(__DIR__) . '/assets/icons/location-bull.svg);"');
+          ?>></div>
           <?php
           foreach ($ristorantiTypes as $type) {
             ?>
@@ -295,7 +297,7 @@ class Stores_Map extends \Elementor\Widget_Base
               } ?>>
                 <?php echo $ristorante['title']; ?>
               </div>
-              <div class="ristorante-address" <?php echo ('style="background-image: url(' . plugin_dir_url(__DIR__) . '/assets/icons/location-icon.svg);"');
+              <div class="ristorante-address" <?php echo ('style="background-image: url(' . plugin_dir_url(__DIR__) . '/assets/icons/location-pin.svg);"');
               ?>>
                 <?php echo $ristorante['address']; ?>
               </div>

@@ -115,6 +115,17 @@ class Opening_Times_Table extends \Elementor\Widget_Base
       ]
     );
 
+    $this->add_control(
+      'show_delivery',
+      [
+        'label' => esc_html__('Show Delivery', 'mirai-panino-giusto'),
+        'type' => \Elementor\Controls_Manager::SWITCHER,
+        'label_on' => esc_html__('Show', 'mirai-panino-giusto'),
+        'label_off' => esc_html__('Hide', 'mirai-panino-giusto'),
+        'return_value' => 'yes',
+        'default' => 'yes',
+      ]
+    );
 
     $this->end_controls_section();
 
@@ -150,12 +161,16 @@ class Opening_Times_Table extends \Elementor\Widget_Base
 
     $days = array('lunedì', 'martedì', 'mercoledì', 'giovedì', 'venerdì', 'sabato', 'domenica');
     ?>
-    <table class="opening-times-table">
-      <tr>
-        <th></th>
-        <th class="service">Sit-in</th>
-        <th class="service">Delivery</th>
-      </tr>
+    <table class="opening-times-table  <?php if (!$settings["show_delivery"]) {
+      echo ("no-delivery");
+    } ?>">
+      <?php if ($settings["show_delivery"]): ?>
+        <tr>
+          <th></th>
+          <th class="service">Sit-in</th>
+          <th class="service">Delivery</th>
+        </tr>
+      <?php endif; ?>
       <?php
 
       for ($i = 0; $i < 7; $i++) {
@@ -168,9 +183,11 @@ class Opening_Times_Table extends \Elementor\Widget_Base
           <td>
             <?php echo $fields["apertura_e_chiusura_sit_in_" . $days[$i]]; ?>
           </td>
-          <td>
-            <?php echo $fields["orario_apertura_chiusura_delivery_" . $days[$i]]; ?>
-          </td>
+          <?php if ($settings["show_delivery"]): ?>
+            <td>
+              <?php echo $fields["orario_apertura_chiusura_delivery_" . $days[$i]]; ?>
+            </td>
+          <?php endif; ?>
         </tr>
         <?php
       }

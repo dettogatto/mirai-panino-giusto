@@ -152,7 +152,7 @@
       var myLatLng = { lat: 45.464206, lng: 9.189802 };
       map = new google.maps.Map($map[0], {
         center: myLatLng,
-        zoom: 10,
+        zoom: 12,
         center: myLatLng,
         styles: styles,
         disableDefaultUI: true, // a way to quickly hide all controls
@@ -261,6 +261,31 @@
       var ret = { lat: lat, lng: lng };
       return ret;
     }
+
+    // user position button
+    $("#stores-map-locate-me").click(function () {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude,
+            };
+            map.setCenter(pos);
+            map.setZoom(14);
+            if (window.innerWidth > mobileBreakpoint) {
+              map.panBy(-200, 0);
+            }
+          },
+          function (error) {
+            console.log("Error geolocating");
+            console.log(error);
+          }
+        );
+      } else {
+        console.log("No geolocation :(");
+      }
+    });
 
     // end document.ready
   });

@@ -159,3 +159,15 @@
 .stores-map-container.no-menu #stores-map-menu {
   display: none;
 }
+
+#stores-map-locate-me {
+  height: 1.25rem;
+  width: 1.25rem;
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}

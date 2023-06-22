@@ -244,6 +244,7 @@ class Category_Gallery extends \Elementor\Widget_Base
       foreach ($products as $product) {
         $img = get_the_post_thumbnail_url($product->ID);
         $ingredienti = get_field("ingredienti", $product->ID);
+        $bollino = get_field("bollino", $product->ID);
         $ingredienti = implode(", ", $ingredienti);
         ?>
         <a href="<?php echo (get_permalink($product->ID)); ?>" class="mirai-category-card">
